@@ -6,9 +6,9 @@ import (
 	"path/filepath"
 
 	"github.com/ghodss/yaml"
-	"github.com/p4tin/goaws/common"
-	sns "github.com/p4tin/goaws/gosns"
-	sqs "github.com/p4tin/goaws/gosqs"
+	"github.com/Krasnyanskiy/goaws/common"
+	sns "github.com/Krasnyanskiy/goaws/gosns"
+	sqs "github.com/Krasnyanskiy/goaws/gosqs"
 )
 
 type EnvSubsciption struct {
