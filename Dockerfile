@@ -1,7 +1,9 @@
-FROM alpine
+FROM golang:1.6
 
-EXPOSE 4100
+RUN go get github.com/Krasnyanskiy/goaws
 
-COPY ./goaws_linux_amd64 /
-COPY ./conf/goaws.yaml /conf/
-ENTRYPOINT ["/goaws_linux_amd64"]
+WORKDIR /go/src/github.com/Krasnyanskiy/goaws
+
+RUN go build .
+
+CMD ["goaws"]
