@@ -308,9 +308,14 @@ func PurgeQueue(w http.ResponseWriter, req *http.Request) {
 
 	// Retrieve FormValues required
 	queueUrl := req.FormValue("QueueUrl")
-
-	uriSegments := strings.Split(queueUrl, "/")
-	queueName := uriSegments[len(uriSegments)-1]
+	queueName := ""
+	if queueUrl == "" {
+		vars := mux.Vars(req)
+		queueName = vars["queueName"]
+	} else {
+		uriSegments := strings.Split(queueUrl, "/")
+		queueName = uriSegments[len(uriSegments)-1]
+	}
 
 	log.Println("Purging Queue:", queueName)
 
